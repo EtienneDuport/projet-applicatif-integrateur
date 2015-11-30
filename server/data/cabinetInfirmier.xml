@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ns1:cabinet
+    xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+    xmlns:ns1='http://www.ujf-grenoble.fr/l3miage/medical'
+    xsi:schemaLocation='http://www.ujf-grenoble.fr/l3miage/medical file:/home/r/rollaale/LangagesPourLeWeb/VoyageurSante/src/PAI4/cabinet.xsd'>
+    <ns1:nom>Soins à Grenoble</ns1:nom>
+    <ns1:adresse>
+        <ns1:numéro>60</ns1:numéro>
+        <ns1:rue>rue de la Chimie</ns1:rue>
+        <ns1:ville>Saint-Martin-d'Hères</ns1:ville>
+        <ns1:codePostal>38400</ns1:codePostal>
+    </ns1:adresse>
+    <ns1:infirmiers>
+        <ns1:infirmier ns1:id="001">
+            <ns1:nom>Fréchie</ns1:nom>
+            <ns1:prénom>Sarah</ns1:prénom>
+            <ns1:photo>sarah.png</ns1:photo>
+        </ns1:infirmier>
+        <ns1:infirmier ns1:id="002">
+            <ns1:nom>Stické</ns1:nom>
+            <ns1:prénom>Sophie</ns1:prénom>
+            <ns1:photo>sophie.png</ns1:photo>
+        </ns1:infirmier>
+        <ns1:infirmier ns1:id="003">
+            <ns1:nom>Ochon</ns1:nom>
+            <ns1:prénom>Paul</ns1:prénom>
+            <ns1:photo>paul.png</ns1:photo>
+        </ns1:infirmier>
+    </ns1:infirmiers>
+    <ns1:patients>
+        <ns1:patient>
+            <!-- Homme, né en aout 98 en France, à Marseille (n°55 en bouches du rhone) 458e naissance -->
+            <ns1:nom>Alécole</ns1:nom>
+            <ns1:prénom>Yvon</ns1:prénom>
+            <ns1:sexe>M</ns1:sexe>
+            <ns1:naissance>1998-08-22</ns1:naissance>
+            <ns1:numéro>198082205545852</ns1:numéro>
+            <ns1:adresse>
+                <ns1:étage>6</ns1:étage>
+                <ns1:numéro>46</ns1:numéro>
+                <ns1:rue>Avenue Félix Viallet</ns1:rue>
+                <ns1:ville>Grenoble</ns1:ville>
+                <ns1:codePostal>38031</ns1:codePostal>
+            </ns1:adresse>
+            <ns1:visite date="2015-10-13" ns1:Intervenant="001">
+                <ns1:acte ns1:IdActe="109"></ns1:acte>
+            </ns1:visite>
+        </ns1:patient>
+        <ns1:patient>
+            <!-- Elvire est née le 08 mars 82 en France, à Lyon (n° 23 dans le rhône), il s'agissait de la 52e naissance dans cette ville  -->
+            <ns1:nom>Orouge</ns1:nom>
+            <ns1:prénom>Elvire</ns1:prénom>
+            <ns1:sexe>F</ns1:sexe>
+            <ns1:naissance>1982-03-08</ns1:naissance>
+            <ns1:numéro>282030805545852</ns1:numéro>
+            <ns1:adresse>
+                <ns1:rue>Rond-Point de la Croix de Vie</ns1:rue>
+                <ns1:ville>La Tronche</ns1:ville>
+                <ns1:codePostal>38700</ns1:codePostal>
+            </ns1:adresse>
+            <ns1:visite date="2015-10-13" ns1:Intervenant="001">
+                <ns1:acte ns1:IdActe="300"></ns1:acte>
+            </ns1:visite>
+        </ns1:patient>
+        <ns1:patient>
+            <!-- Oscare est née le 25 mars 75 en France, à Chambéry (n° 65 dans la Savoie) Il s'agissait de la 692e naissance.   -->
+            <ns1:nom>Pien</ns1:nom>
+            <ns1:prénom>Oscare</ns1:prénom>
+            <ns1:sexe>F</ns1:sexe>
+            <ns1:naissance>1975-03-25</ns1:naissance>
+            <ns1:numéro>275032505545852</ns1:numéro>
+            <ns1:adresse>
+                <ns1:rue>rue Casimir Brenier</ns1:rue>
+                <ns1:ville>Grenoble</ns1:ville>
+                <ns1:codePostal>38000</ns1:codePostal>
+            </ns1:adresse>
+            <ns1:visite date="2015-12-08">
+                <ns1:acte ns1:IdActe="101"></ns1:acte>
+                <ns1:acte ns1:IdActe="104"></ns1:acte>
+            </ns1:visite>
+        </ns1:patient>
+        <ns1:patient>
+            <!-- Xavier est un petit garçon de 4 ans, né le 02 août 2011 en France, à Bordeaux (n° 63 dans la Gironde). Il s'agi de la 35e naissance.    -->
+            <ns1:nom>Kapoëtla</ns1:nom>
+            <ns1:prénom>Xavier</ns1:prénom>
+            <ns1:sexe>M</ns1:sexe>
+            <ns1:naissance>2011-08-02</ns1:naissance>
+            <ns1:numéro>111080205545852</ns1:numéro>
+            <ns1:adresse>
+                <ns1:numéro>25</ns1:numéro>
+                <ns1:rue>rue des Martyrs</ns1:rue>
+                <ns1:ville>Grenoble</ns1:ville>
+                <ns1:codePostal>38042</ns1:codePostal>
+            </ns1:adresse>
+            <ns1:visite date="2015-12-08">
+                <ns1:acte ns1:IdActe="111"></ns1:acte>
+            </ns1:visite>
+        </ns1:patient>
+    </ns1:patients>
+
+</ns1:cabinet>

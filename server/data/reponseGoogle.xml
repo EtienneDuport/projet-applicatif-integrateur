@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DistanceMatrixResponse>
+ <status>OK</status>
+ <origin_address>46 Avenue Félix Viallet, 38031 Grenoble, France</origin_address>
+ <destination_address>Rond-Point de la Croix de Vie, 38700 La Tronche, France</destination_address>
+ <destination_address>Rue Casimir Brenier, 38000 Grenoble, France</destination_address>
+ <row>
+  <element>
+   <status>OK</status>
+   <duration>
+    <value>615</value>
+    <text>10 minutes</text>
+   </duration>
+   <distance>
+    <value>3069</value>
+    <text>3,1 km</text>
+   </distance>
+  </element>
+  <element>
+   <status>OK</status>
+   <duration>
+    <value>63</value>
+    <text>1 minute</text>
+   </duration>
+   <distance>
+    <value>246</value>
+    <text>0,2 km</text>
+   </distance>
+  </element>
+ </row>
+</DistanceMatrixResponse>

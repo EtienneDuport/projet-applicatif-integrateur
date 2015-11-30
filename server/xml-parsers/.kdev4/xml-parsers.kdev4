@@ -1,0 +1,23 @@
+[Buildset]
+BuildItems=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x01\x00\x00\x00\x0b\x00\x00\x00\x00\x01\x00\x00\x00\x16\x00x\x00m\x00l\x00-\x00p\x00a\x00r\x00s\x00e\x00r\x00s)
+
+[Launch]
+Launch Configurations=Launch Configuration 0
+
+[Launch][Launch Configuration 0]
+Configured Launch Modes=execute
+Configured Launchers=nativeAppLauncher
+Name=Nouveau lanceur Application
+Type=Native Application
+
+[Launch][Launch Configuration 0][Data]
+Arguments=../data/cabinetInfirmier.xml 1
+Dependencies=@Variant(\x00\x00\x00\t\x00\x00\x00\x00\x00)
+Dependency Action=Nothing
+EnvironmentGroup=default
+Executable=file:///home/g/girauval/PAI/server/xml-parsers/testParsers
+External Terminal=konsole --noclose --workdir %workdir -e %exe
+Project Target=
+Use External Terminal=false
+Working Directory=file:///home/g/girauval/PAI/server/xml-parsers
+isExecutable=true

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="95">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <df root="." name="0">
+      <df name="server">
+        <df name="xml-parsers">
+          <in>Address.cpp</in>
+          <in>FromGoogleMapXMLToDistanceTable.cpp</in>
+          <in>FromXMLToGoogleMapHTTPRequest.cpp</in>
+          <in>LwSaxParser.cpp</in>
+          <in>RO.cpp</in>
+          <in>SortVisits.cpp</in>
+          <in>testParsers.c</in>
+          <in>testRO.cpp</in>
+        </df>
+      </df>
+    </df>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>server/xml-parsers/Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceFolderFilter>^(nbproject)$</sourceFolderFilter>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>server/xml-parsers/Makefile</projectmakefile>
+  <confs>
+    <conf name="Default" type="0">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>false</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <codeAssistance>
+      </codeAssistance>
+      <makefileType>
+        <makeTool>
+          <buildCommandWorkingDir>server/xml-parsers</buildCommandWorkingDir>
+          <buildCommand>${MAKE} -f Makefile</buildCommand>
+          <cleanCommand>${MAKE} -f Makefile clean</cleanCommand>
+          <executablePath></executablePath>
+        </makeTool>
+      </makefileType>
+      <item path="server/xml-parsers/Address.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="server/xml-parsers/FromGoogleMapXMLToDistanceTable.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="server/xml-parsers/FromXMLToGoogleMapHTTPRequest.cpp"
+            ex="false"
+            tool="1"
+            flavor2="4">
+      </item>
+      <item path="server/xml-parsers/LwSaxParser.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="server/xml-parsers/RO.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="server/xml-parsers/SortVisits.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+      <item path="server/xml-parsers/testParsers.c" ex="false" tool="0" flavor2="2">
+      </item>
+      <item path="server/xml-parsers/testRO.cpp" ex="false" tool="1" flavor2="4">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>
