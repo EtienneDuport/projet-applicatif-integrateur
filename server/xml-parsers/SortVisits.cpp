@@ -16,6 +16,7 @@
 
 #include "Address.h"
 #include "FromGoogleMapXMLToDistanceTable.h"
+#include "RO.h"
 
 // Constructeur
 SortVisits::SortVisits() {
@@ -36,6 +37,8 @@ void SortVisits::processDistanceMatrix(char * inputFileName, char * googleAnswer
     distances = googleMapParser.getDistances();
     
     // Ici, il faut appeler la fonction développée en RO
+    std::vector <int> thePath = tsp(distances, 0);
+    
 
     std::string inputStd(inputFileName);
     std::string tmpFileName = inputStd.substr(0, inputStd.find_last_of("."));
@@ -54,11 +57,11 @@ std::string SortVisits::getPatientNodeAdresse(xmlpp::Node * adresseNode) {
     // On déclare le namespace uilisé dans le fichier source.
     // Attention, ce namespace doit être le même que celui de votre fichier cabinetInfirmier.xml !!    
     xmlpp::Node::PrefixNsMap nsMap;
-    nsMap["cab"] = "http://www.ujf-grenoble.fr/l3miage/medical";
+    nsMap["ns1"] = "http://www.ujf-grenoble.fr/l3miage/medical";
      
     // On récupère le numéro s'il existe
-    if (adresseNode->find("cab:numéro", nsMap).size() > 0) {
-        node = adresseNode->find("cab:numéro", nsMap).at(0);
+    if (adresseNode->find("ns1:numéro", nsMap).size() > 0) {
+        node = adresseNode->find("ns1:numéro", nsMap).at(0);
         element = dynamic_cast <xmlpp::Element *> (node);
         if (element != NULL) {
             std::string numero = element->get_child_text()->get_content();
@@ -67,7 +70,7 @@ std::string SortVisits::getPatientNodeAdresse(xmlpp::Node * adresseNode) {
     }
      
     // On récupère la rue
-    xmlpp::NodeSet possiblesRues = adresseNode->find("cab:rue", nsMap);
+    xmlpp::NodeSet possiblesRues = adresseNode->find("ns1:rue", nsMap);
     // D'après le schéma, il y a forcément une rue dans l'adresse.
     // On teste tout de même si l'élément rue du namespace http://www.ujf-grenoble.fr/l3miage/medical a été trouvé...
     if (possiblesRues.size() == 0)
@@ -80,7 +83,7 @@ std::string SortVisits::getPatientNodeAdresse(xmlpp::Node * adresseNode) {
     }
      
     // On récupère la ville
-    xmlpp::NodeSet possiblesVille = adresseNode->find("cab:ville", nsMap);
+    xmlpp::NodeSet possiblesVille = adresseNode->find("ns1:ville", nsMap);
     // D'après le schéma, il y a forcément une ville dans l'adresse.
     // On teste tout de même si l'élément ville du namespace http://www.ujf-grenoble.fr/l3miage/medical a été trouvé...
     if (possiblesVille.size() == 0)
@@ -93,7 +96,7 @@ std::string SortVisits::getPatientNodeAdresse(xmlpp::Node * adresseNode) {
     }
      
     // On récupère le code postal
-    xmlpp::NodeSet possiblesCodePostal = adresseNode->find("cab:codePostal", nsMap);
+    xmlpp::NodeSet possiblesCodePostal = adresseNode->find("ns1:codePostal", nsMap);
     // D'après le schéma, il y a forcément un code postal dans l'adresse.
     // On teste tout de même si l'élément codePostal du namespace http://www.ujf-grenoble.fr/l3miage/medical a été trouvé...
     if (possiblesCodePostal.size() == 0)
@@ -129,21 +132,21 @@ void SortVisits::modifyFile(const char * inputFilename, std::vector<std::string>
         // On déclare donc le namespace uilisé dans le fichier source.
         // Attention, ce namespace doit être le même que celui de votre fichier cabinetInfirmier.xml !!    
         xmlpp::Node::PrefixNsMap nsMap;
-        nsMap["cab"] = "http://www.ujf-grenoble.fr/l3miage/medical";
+        nsMap["ns1"] = "http://www.ujf-grenoble.fr/l3miage/medical";
  
         // --------------- On ordonne les patients selon leur adresse
         // On recherche et stocke tous les patients dans une map avec pour
         // clé leur adresse
         std::map<std::string, xmlpp::Element *> patientsAdresses;
         // On doit construire les adresse de la même manière que lors du parsing
-        xmlpp::NodeSet patients = node->find("//cab:patients", nsMap);
+        xmlpp::NodeSet patients = node->find("//ns1:patients", nsMap);
      
         if (patients.size() == 0) {
             std::cout << "Je n'ai pas trouvé le noeud patients, désolé..." << std::endl;
             return;
         }   
-        xmlpp::Node * patientsNode = node->find("//cab:patients", nsMap).at(0);
-        xmlpp::NodeSet allPatients = patientsNode->find("cab:patient", nsMap);
+        xmlpp::Node * patientsNode = node->find("//ns1:patients", nsMap).at(0);
+        xmlpp::NodeSet allPatients = patientsNode->find("ns1:patient", nsMap);
        
         if (allPatients.size() == 0) {
             std::cout << "Je n'ai pas trouvé d'éléments patient à l'intérieur de l'élément patients... " << std::endl;
@@ -153,7 +156,7 @@ void SortVisits::modifyFile(const char * inputFilename, std::vector<std::string>
         {
             xmlpp::Element * patient = dynamic_cast<xmlpp::Element *>(*iter);
             // Récupérer l'adresse du patient en question
-            xmlpp::NodeSet adressesInPatient = patient->find("cab:adresse", nsMap);
+            xmlpp::NodeSet adressesInPatient = patient->find("ns1:adresse", nsMap);
             if (adressesInPatient.size() ==1) {
                 xmlpp::Node * adresseNode = adressesInPatient.at(0);
                 std::string adresse = getPatientNodeAdresse(adresseNode);
